@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מתנה מחכה לך | רבקה הולצברג</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-green: #1B4D3E;
+            --luxury-gold: #D4AF37;
+            --bg-cream: #F8F9FA;
+            --text-dark: #333333;
+            --white-glass: rgba(255, 255, 255, 0.96);
+            --border-light: rgba(27, 77, 62, 0.15);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            background-image: radial-gradient(rgba(27, 77, 62, 0.03) 1.2px, transparent 1.2px);
+            background-size: 35px 35px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Confirmation Header */
+        .top-status {
+            text-align: center;
+            padding: 40px 0 10px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .success-label {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #fff;
+            padding: 10px 24px;
+            border-radius: 50px;
+            color: var(--deep-green);
+            font-weight: 500;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-light);
+            margin-bottom: 25px;
+        }
+
+        .offer-row {
+            display: block;
+            margin: 10px 0 20px;
+            animation: fadeIn 1s ease-out 0.2s both;
+        }
+
+        .offer-highlight-badge {
+            background-color: var(--deep-green);
+            color: var(--luxury-gold);
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 10px 25px rgba(27, 77, 62, 0.12);
+        }
+
+        h1 {
+            color: var(--deep-green);
+            font-size: clamp(1.8rem, 6vw, 2.6rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .bridge-text {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-size: 1.15rem;
+            color: #555;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Main Card */
+        .glass-card {
+            background: var(--white-glass);
+            backdrop-filter: blur(20px);
+            border-radius: 35px;
+            padding: 50px 40px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.04);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            animation: fadeIn 1s ease-out 0.4s both;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            text-align: right;
+            margin-bottom: 40px;
+        }
+
+        .feature-box {
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: #fff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--luxury-gold);
+            box-shadow: 0 6px 15px rgba(212, 175, 55, 0.12);
+            flex-shrink: 0;
+            padding: 10px;
+        }
+
+        .feature-info h3 {
+            font-size: 1.1rem;
+            color: var(--deep-green);
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .feature-info p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        .image-showcase {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        /* Adjusted for A4 Portrait Aspect Ratio */
+        .book-preview {
+            width: 100%;
+            max-width: 380px;
+            aspect-ratio: 1 / 1.414; /* A4 Portrait Ratio */
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.12);
+            border: 1px solid #ddd;
+        }
+
+        /* Pricing Section - Clean and Elegant */
+        .pricing-box {
+            background: #fff;
+            border-radius: 28px;
+            padding: 45px 40px;
+            border: 1px solid var(--border-light);
+            text-align: center;
+            margin-top: 30px;
+            position: relative;
+        }
+
+        #offer-status-text {
+            margin-bottom: 15px;
+            font-weight: 500;
+            color: var(--deep-green);
+            font-size: 1.1rem;
+        }
+
+        .price-comparison-text {
+            font-size: 1.2rem;
+            color: #aaa;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .price-comparison-text .strike-out {
+            text-decoration: line-through;
+            margin: 0 5px;
+            opacity: 0.6;
+        }
+
+        .price-main-display {
+            color: var(--deep-green);
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .price-main-display .only-prefix {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-left: 5px;
+        }
+
+        .price-main-display .currency-symbol {
+            font-size: 1.8rem;
+            vertical-align: super;
+            font-weight: 700;
+        }
+
+        .cta-btn {
+            background-color: var(--luxury-gold);
+            color: #fff;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 20px 45px;
+            border-radius: 18px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 12px 28px rgba(212, 175, 55, 0.18);
+            border: none;
+            cursor: pointer;
+            width: auto;
+            min-width: 320px;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 38px rgba(212, 175, 55, 0.28);
+        }
+
+        .timer-row {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            color: var(--deep-green);
+        }
+
+        #timer-val {
+            background: var(--deep-green);
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 16px;
+            font-weight: 900;
+            font-size: 2.5rem;
+            min-width: 180px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(27, 77, 62, 0.15);
+        }
+
+        .community-footer {
+            background: #fff;
+            padding: 40px;
+            border-radius: 28px;
+            text-align: center;
+            border: 1px solid var(--border-light);
+            margin-top: 50px;
+        }
+
+        .wa-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #128c7e;
+            text-decoration: none;
+            font-weight: 700;
+            background: #f0fdf4;
+            padding: 14px 35px;
+            border-radius: 14px;
+            margin-top: 20px;
+            transition: background 0.2s;
+        }
+
+        .wa-btn:hover {
+            background: #e1f9e9;
+        }
+
+        .svg-icon { 
+            fill: none; stroke: currentColor; stroke-width: 2.5; 
+            stroke-linecap: round; stroke-linejoin: round;
+            width: 100%; height: 100%; overflow: visible;
+        }
+
+        @media (max-width: 600px) {
+            .features-grid { grid-template-columns: 1fr; }
+            .price-main-display { font-size: 3.5rem; }
+            #timer-val { font-size: 2rem; min-width: 150px; }
+            .cta-btn { width: 100%; min-width: unset; }
+            .book-preview { max-width: 320px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header class="top-status">
+            <div class="success-label">
+                <div style="width: 20px; height: 20px; flex-shrink: 0;">
+                    <svg class="svg-icon" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                </div>
+                מעולה! חוברת המתוקים כבר מחכה לך במייל
+            </div>
+            
+            <div class="offer-row">
+                <div class="offer-highlight-badge">הטבת הצטרפות מיוחדת למצטרפות חדשות</div>
+            </div>
+
+            <h1>מתוקים זו התחלה נפלאה, אבל מה עם שאר היום?</h1>
+            <p class="bridge-text">חוברת המתוקים תיתן לך מענה לרגעים הקטנים של הקפה, אבל כדי באמת להרגיש את השינוי בבריאות ובאנרגיה, את צריכה פתרון מלא לכל המטבח שלך.</p>
+        </header>
+
+        <main class="glass-card">
+            <h2 style="text-align: center; color: var(--deep-green); margin-bottom: 40px; font-weight: 900;">אני מזמינה אותך להשתדרג לספר המתכונים המלא</h2>
+            
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    </div>
+                    <div class="feature-info">
+                        <h3>פתרון לכל שעה ביום</h3>
+                        <p>82 מתכונים נוספים: לחמים, מאפים מלוחים, מנות עיקריות מזינות וסלטים שסוגרים לך את הפינה.</p>
+                    </div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <svg class="svg-icon" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    </div>
+                    <div class="feature-info">
+                        <h3>אני איתך צעד אחר צעד</h3>
+                        <p>בתוך כל מתכון מחכה לך קישור לסרטון הכנה אישי - בדיוק כמו סדנת בישול אצלך בבית.</p>
+                    </div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                    </div>
+                    <div class="feature-info">
+                        <h3>החופש לבשל ללא מסך</h3>
+                        <p>ספר פיזי מעוצב ומרגש שכיף לדפדף בו, בלי שהמסך ייכבה ובלי שהידיים הדביקות יגעו בטלפון.</p>
+                    </div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l9.52-9.52 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    </div>
+                    <div class="feature-info">
+                        <h3>טעם שלא מתפשר</h3>
+                        <p>מתכונים ללא גלוטן וללא סוכר שיוצאים "כמו המקור" - מבטיחה לך שכל המשפחה תתאהב.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="image-showcase">
+                <!--  -->
+                <img src="https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?q=80&w=1000&auto=format&fit=crop" alt="ספר המתכונים - רבקה הולצברג" class="book-preview">
+            </div>
+
+            <div class="pricing-box">
+                <p id="offer-status-text">הטבה בלעדית למצטרפות חדשות (ל-15 דקות הקרובות):</p>
+                
+                <div id="price-comparison" class="price-comparison-text">
+                    <span class="strike-out">₪129</span> <span class="strike-out">₪99</span>
+                </div>
+
+                <div class="price-main-display">
+                    <span class="only-prefix">רק</span>
+                    <span id="price-val">89</span>
+                    <span class="currency-symbol">₪</span>
+                </div>
+
+                <a href="https://private.invoice4u.co.il/newsite/he/clearing/public/i4u-clearing?ProductGuid=78547b55-6474-4095-a177-9cb605ce3fc1" id="main-cta" class="cta-btn">
+                    כן, אני רוצה את הספר אצלי!
+                    <div style="width: 22px; height: 22px; margin-right: 10px;">
+                        <svg class="svg-icon" style="stroke: #fff;" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    </div>
+                </a>
+
+                <div class="timer-row" id="timer-container">
+                    <span>ההטבה תפוג בעוד:</span>
+                    <div id="timer-val">15:00</div>
+                </div>
+            </div>
+        </main>
+
+        <section class="community-footer">
+            <h4>בואי נשמור על קשר בינתיים 💚</h4>
+            <p>מוזמנת לקבל השראה יומיומית, טיפים ומתכונים בחינם ישירות לנייד.</p>
+            <a href="https://chat.whatsapp.com/KxWFEfYZ0PEAbk3Luz9PUI" class="wa-btn" target="_blank">
+                <div style="width: 20px; height: 20px; margin-left: 10px;">
+                    <svg class="svg-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-10.4 8.38 8.38 0 0 1 3.8.9L21 4.5z"></path></svg>
+                </div>
+                הצטרפי לקבוצת הוואטסאפ השקטה שלי
+            </a>
+        </section>
+
+        <footer style="text-align: center; padding: 50px 0; color: #aaa; font-size: 0.85rem;">
+            <p>© רבקה הולצברג - בריאות שבאה מהטבע</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const DISCOUNT_LINK = "https://private.invoice4u.co.il/newsite/he/clearing/public/i4u-clearing?ProductGuid=78547b55-6474-4095-a177-9cb605ce3fc1"; 
+        const REGULAR_LINK = "https://private.invoice4u.co.il/newsite/he/clearing/public/i4u-clearing?ProductGuid=01f99036-3332-4744-a2bc-1a6f96893572";  
+        const TIMER_DURATION = 15 * 60;
+
+        function initOTO() {
+            const timerDisplay = document.getElementById('timer-val');
+            const ctaBtn = document.getElementById('main-cta');
+            const priceVal = document.getElementById('price-val');
+            const offerText = document.getElementById('offer-status-text');
+            const priceComparison = document.getElementById('price-comparison');
+            const timerContainer = document.getElementById('timer-container');
+            
+            let endTime = localStorage.getItem('oto_end_time');
+            const now = Math.floor(Date.now() / 1000);
+
+            if (!endTime) {
+                endTime = now + TIMER_DURATION;
+                localStorage.setItem('oto_end_time', endTime);
+            }
+
+            function updateTimer() {
+                const currentTime = Math.floor(Date.now() / 1000);
+                const remaining = endTime - currentTime;
+
+                if (remaining <= 0) {
+                    timerDisplay.textContent = "00:00";
+                    ctaBtn.href = REGULAR_LINK; 
+                    priceVal.textContent = "99";
+                    priceComparison.style.display = "none";
+                    offerText.textContent = "ההטבה המיוחדת הסתיימה, אך עדיין ניתן לרכוש במחיר מבצע:";
+                    timerContainer.style.opacity = "0.5";
+                    clearInterval(timerInterval);
+                    return;
+                }
+
+                const mins = Math.floor(remaining / 60);
+                const secs = remaining % 60;
+                timerDisplay.textContent = `${mins < 10 ? '0' : ''}${mins}:${secs < 10 ? '0' : ''}${secs}`;
+                ctaBtn.href = DISCOUNT_LINK;
+            }
+
+            const timerInterval = setInterval(updateTimer, 1000);
+            updateTimer();
+        }
+
+        window.onload = initOTO;
+    </script>
+</body>
+</html>

@@ -44,7 +44,7 @@
             padding: 20px;
         }
 
-        /* Confirmation Header */
+        /* כותרת סטטוס */
         .top-status {
             text-align: center;
             padding: 40px 0 10px;
@@ -102,7 +102,7 @@
             margin-bottom: 40px;
         }
 
-        /* Main Card */
+        /* כרטיסיית זכוכית מרכזית */
         .glass-card {
             background: var(--white-glass);
             backdrop-filter: blur(20px);
@@ -159,18 +159,23 @@
             margin: 40px 0;
         }
 
-        /* Adjusted for A4 Portrait Aspect Ratio */
+        /* תצוגת הספר ביחס A4 לאורך */
         .book-preview {
             width: 100%;
             max-width: 380px;
-            aspect-ratio: 1 / 1.414; /* A4 Portrait Ratio */
+            aspect-ratio: 1 / 1.414; /* יחס A4 לאורך */
             object-fit: cover;
             border-radius: 20px;
             box-shadow: 0 25px 50px rgba(0,0,0,0.12);
             border: 1px solid #ddd;
+            transition: transform 0.6s ease;
         }
 
-        /* Pricing Section - Clean and Elegant */
+        .book-preview:hover {
+            transform: scale(1.02);
+        }
+
+        /* קופסת מחיר נקייה ואלגנטית */
         .pricing-box {
             background: #fff;
             border-radius: 28px;
@@ -271,6 +276,7 @@
             box-shadow: 0 8px 20px rgba(27, 77, 62, 0.15);
         }
 
+        /* קהילה */
         .community-footer {
             background: #fff;
             padding: 40px;
@@ -309,7 +315,7 @@
             .price-main-display { font-size: 3.5rem; }
             #timer-val { font-size: 2rem; min-width: 150px; }
             .cta-btn { width: 100%; min-width: unset; }
-            .book-preview { max-width: 320px; }
+            .book-preview { max-width: 300px; }
         }
     </style>
 </head>
@@ -376,8 +382,8 @@
             </div>
 
             <div class="image-showcase">
-                <!--  -->
-                <img src="https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?q=80&w=1000&auto=format&fit=crop" alt="ספר המתכונים - רבקה הולצברג" class="book-preview">
+                <!-- שימוש בתמונה שהועלתה: image_0a8c28.png -->
+                <img src="image_0a8c28.png" alt="ספר המתכונים - רבקה הולצברג" class="book-preview">
             </div>
 
             <div class="pricing-box">

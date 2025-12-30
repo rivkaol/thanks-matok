@@ -94,7 +94,11 @@
             transform: rotateY(12deg) rotateX(5deg);
             transition: transform 0.6s ease;
             background-color: white;
-            border-right: 10px solid #e5e5e5; /* Realistic book thickness */
+            border-right: 10px solid #e5e5e5;
+        }
+
+        .book-3d:hover {
+            transform: rotateY(5deg) rotateX(0deg) scale(1.03);
         }
 
         /* Content Card */
@@ -193,7 +197,7 @@
         .rec-image {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Ensures the whole screenshot is visible without crop */
+            object-fit: contain;
             display: block;
         }
 
@@ -289,7 +293,7 @@
             .price-final { font-size: 3.8rem; }
             .cta-btn { width: 100%; min-width: unset; font-size: 1.2rem; }
             .content-card { padding: 35px 20px; }
-            .single-rec-container { aspect-ratio: 1/1; } /* More square on small screens */
+            .single-rec-container { aspect-ratio: 1/1; }
         }
     </style>
 </head>
@@ -312,7 +316,6 @@
             <h1>המתוקים בדרך למייל! ובינתיים... הזדמנות לשדרג את המטבח</h1>
         </header>
 
-        <!-- Book Mockup Image -->
         <div class="book-container">
             <img src="image.png" alt="ספר המתכונים המלא - רבקה הולצברג" class="book-3d">
         </div>
@@ -366,8 +369,8 @@
             <section class="auth-recommendations">
                 <p class="auth-title">מה אומרות נשים שכבר מבשלות מהספר?</p>
                 <div class="single-rec-container">
-                    <!-- Replace with your actual 1000x800 screenshot -->
-                    <img src="https://via.placeholder.com/1000x800?text=צילום+מסך+של+המלצה+אמיתית" alt="המלצה אמיתית מהספר" class="rec-image">
+                    <!-- צילום מסך של המלצה אמיתית מרבקה הולצברג -->
+                    <img src="hamlza4.png" alt="המלצה אמיתית מהספר" class="rec-image">
                 </div>
                 <p class="rec-caption">* צילום מסך מהודעה אמיתית של לקוחה</p>
             </section>

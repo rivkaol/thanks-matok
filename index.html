@@ -15,6 +15,7 @@
             --text-dark: #333333;
             --white-glass: rgba(255, 255, 255, 0.96);
             --border-light: rgba(27, 77, 62, 0.15);
+            --wa-green-light: #e7fce3;
         }
 
         @keyframes fadeIn {
@@ -44,6 +45,7 @@
             padding: 20px;
         }
 
+        /* Top status and header */
         .top-status {
             text-align: center;
             padding: 40px 0 20px;
@@ -74,6 +76,7 @@
             line-height: 1.3;
         }
 
+        /* 3D Book Display */
         .book-container {
             perspective: 1200px;
             margin: 30px 0;
@@ -94,6 +97,7 @@
             border-right: 8px solid #ececec;
         }
 
+        /* Content Card */
         .content-card {
             background: var(--white-glass);
             backdrop-filter: blur(20px);
@@ -138,17 +142,16 @@
         }
 
         .feature-icon {
-            width: 44px;
-            height: 44px;
+            width: 46px;
+            height: 46px;
             background: #fff;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--luxury-gold);
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.12);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.1);
             flex-shrink: 0;
-            padding: 0; /* נקי לטובת מניעת מריחה */
         }
 
         .feature-info h3 {
@@ -158,29 +161,31 @@
             line-height: 1.2;
         }
 
-        /* Testimonial Section - Further Reduced */
+        /* Testimonial Section */
         .auth-recommendations {
-            margin: 40px 0;
+            margin: 45px 0;
             text-align: center;
         }
 
         .auth-title {
             color: var(--deep-green);
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             font-size: 1.25rem;
         }
 
         .single-rec-container {
             width: 100%;
-            max-width: 380px; /* הוקטן עוד יותר */
+            max-width: 340px; 
             margin: 0 auto;
             aspect-ratio: 5 / 4; 
             background: #fff;
-            border: 1px solid #f0f0f0;
-            border-radius: 16px;
+            border: 6px solid #fff; 
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.08); 
+            outline: 1px solid var(--wa-green-light); 
+            position: relative;
         }
 
         .rec-image {
@@ -190,6 +195,7 @@
             display: block;
         }
 
+        /* Pricing Section */
         .pricing-island {
             background: #fff;
             border-radius: 28px;
@@ -258,15 +264,16 @@
         .timer-display {
             background: var(--deep-green);
             color: #fff;
-            padding: 8px 20px;
+            padding: 10px 25px;
             border-radius: 10px;
             font-weight: 900;
-            font-size: 2rem;
+            font-size: 2.2rem;
             display: inline-block;
             margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        /* SVG Fix - מונע מריחה סופית */
+        /* SVG Basic Style */
         .svg-icon { 
             width: 24px;
             height: 24px;
@@ -277,6 +284,7 @@
             stroke-linejoin: round;
             flex-shrink: 0;
             display: block;
+            overflow: visible;
         }
 
         @media (max-width: 600px) {
@@ -294,7 +302,7 @@
         
         <header class="top-status">
             <div class="success-badge">
-                <div style="width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;">
+                <div style="width: 24px; height: 24px;">
                     <svg class="svg-icon" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                 </div>
                 מעולה! חוברת המתוקים בדרך למייל שלך
@@ -320,6 +328,7 @@
             <div class="features-grid">
                 <div class="feature-box">
                     <div class="feature-icon">
+                        <!-- אייקון ספר -->
                         <svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
                     </div>
                     <div class="feature-info">
@@ -329,6 +338,7 @@
                 </div>
                 <div class="feature-box">
                     <div class="feature-icon">
+                        <!-- אייקון צלחת/ארוחה -->
                         <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
                     </div>
                     <div class="feature-info">
@@ -338,6 +348,7 @@
                 </div>
                 <div class="feature-box">
                     <div class="feature-icon">
+                        <!-- אייקון וידאו -->
                         <svg class="svg-icon" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                     </div>
                     <div class="feature-info">
@@ -347,8 +358,10 @@
                 </div>
                 <div class="feature-box">
                     <div class="feature-icon">
-                        <!-- לב מתוקן ללא מריחה -->
-                        <svg class="svg-icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l9.52-9.52 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                        <!-- אייקון לב חדש - סגור ושלם -->
+                        <svg class="svg-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </div>
                     <div class="feature-info">
                         <h3>מבחן הטעם</h3>

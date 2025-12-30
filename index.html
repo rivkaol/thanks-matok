@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Design System Colors */
             --deep-green: #1B4D3E;
             --luxury-gold: #D4AF37;
             --bg-cream: #F8F9FA;
@@ -45,7 +44,6 @@
             padding: 20px;
         }
 
-        /* Top status and header */
         .top-status {
             text-align: center;
             padding: 40px 0 20px;
@@ -70,43 +68,37 @@
 
         h1 {
             color: var(--deep-green);
-            font-size: clamp(1.5rem, 5vw, 2.2rem);
+            font-size: clamp(1.4rem, 4.5vw, 2.1rem);
             font-weight: 900;
             margin-bottom: 20px;
             line-height: 1.3;
         }
 
-        /* 3D Book Display - Spine on Right for Hebrew */
         .book-container {
             perspective: 1200px;
-            margin: 40px 0;
+            margin: 30px 0;
             display: flex;
             justify-content: center;
         }
 
         .book-3d {
             width: 100%;
-            max-width: 300px;
+            max-width: 260px;
             aspect-ratio: 1 / 1.414;
             object-fit: cover;
-            border-radius: 4px 4px 16px 16px;
-            box-shadow: 15px 15px 40px rgba(0,0,0,0.18);
-            transform: rotateY(12deg) rotateX(5deg);
+            border-radius: 4px 4px 12px 12px;
+            box-shadow: 12px 12px 35px rgba(0,0,0,0.15);
+            transform: rotateY(10deg) rotateX(4deg);
             transition: transform 0.6s ease;
             background-color: white;
-            border-right: 10px solid #e5e5e5;
+            border-right: 8px solid #ececec;
         }
 
-        .book-3d:hover {
-            transform: rotateY(5deg) rotateX(0deg) scale(1.03);
-        }
-
-        /* Content Card */
         .content-card {
             background: var(--white-glass);
             backdrop-filter: blur(20px);
             border-radius: 35px;
-            padding: 50px 40px;
+            padding: 40px 30px;
             box-shadow: 0 25px 60px rgba(0,0,0,0.04);
             border: 1px solid rgba(255, 255, 255, 0.7);
             margin-bottom: 40px;
@@ -115,83 +107,80 @@
 
         .bridge-section {
             text-align: center;
-            margin-bottom: 45px;
+            margin-bottom: 40px;
         }
 
         .bridge-section h2 {
             color: var(--deep-green);
-            font-size: 1.6rem;
-            margin-bottom: 15px;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
             font-weight: 700;
         }
 
         .bridge-section p {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: #555;
-            max-width: 680px;
+            max-width: 650px;
             margin: 0 auto;
         }
 
-        /* Feature Grid */
         .features-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin: 40px 0;
+            gap: 20px;
+            margin: 30px 0;
         }
 
         .feature-box {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             align-items: center;
         }
 
         .feature-icon {
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             background: #fff;
-            border-radius: 10px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--luxury-gold);
             box-shadow: 0 4px 12px rgba(212, 175, 55, 0.12);
             flex-shrink: 0;
+            padding: 0; /* נקי לטובת מניעת מריחה */
         }
 
         .feature-info h3 {
-            font-size: 1.05rem;
+            font-size: 1rem;
             color: var(--deep-green);
             font-weight: 700;
             line-height: 1.2;
         }
 
-        /* Authentic Recommendation Section - 1000x800 Optimization */
+        /* Testimonial Section - Further Reduced */
         .auth-recommendations {
-            margin: 50px 0;
+            margin: 40px 0;
             text-align: center;
         }
 
         .auth-title {
             color: var(--deep-green);
             font-weight: 700;
-            margin-bottom: 25px;
-            font-size: 1.4rem;
+            margin-bottom: 20px;
+            font-size: 1.25rem;
         }
 
         .single-rec-container {
             width: 100%;
-            max-width: 650px;
+            max-width: 380px; /* הוקטן עוד יותר */
             margin: 0 auto;
-            aspect-ratio: 5 / 4; /* Optimized for 1000x800 pixels */
+            aspect-ratio: 5 / 4; 
             background: #fff;
-            border: 2px solid #f0f0f0;
-            border-radius: 20px;
+            border: 1px solid #f0f0f0;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
         }
 
         .rec-image {
@@ -201,25 +190,17 @@
             display: block;
         }
 
-        .rec-caption {
-            font-size: 0.9rem;
-            color: #888;
-            margin-top: 12px;
-            font-style: italic;
-        }
-
-        /* Pricing Section */
         .pricing-island {
             background: #fff;
             border-radius: 28px;
-            padding: 45px 40px;
+            padding: 40px;
             border: 1px solid var(--border-light);
             text-align: center;
             margin-top: 30px;
         }
 
         .price-anchor {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #999;
             margin-bottom: 5px;
         }
@@ -231,13 +212,12 @@
 
         .price-final {
             color: var(--deep-green);
-            font-size: 5rem;
+            font-size: 4.5rem;
             font-weight: 900;
             line-height: 1;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
-        /* Service-oriented CTA */
         .cta-btn {
             background-color: var(--luxury-gold);
             color: #fff;
@@ -246,31 +226,31 @@
             align-items: center;
             justify-content: center;
             gap: 12px;
-            padding: 20px 45px;
+            padding: 18px 40px;
             border-radius: 18px;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 700;
             box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
             transition: all 0.3s ease;
             width: auto;
-            min-width: 350px;
+            min-width: 320px;
         }
 
-        .cta-btn:hover { transform: translateY(-4px); box-shadow: 0 15px 35px rgba(212, 175, 55, 0.3); }
+        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(212, 175, 55, 0.3); }
 
         .trust-row {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-            opacity: 0.7;
+            gap: 15px;
+            margin-top: 25px;
+            opacity: 0.8;
         }
 
         .trust-badge {
             display: flex;
             flex-direction: column;
             align-items: center;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--deep-green);
             gap: 4px;
         }
@@ -278,22 +258,33 @@
         .timer-display {
             background: var(--deep-green);
             color: #fff;
-            padding: 10px 25px;
-            border-radius: 12px;
+            padding: 8px 20px;
+            border-radius: 10px;
             font-weight: 900;
-            font-size: 2.2rem;
+            font-size: 2rem;
             display: inline-block;
             margin-top: 20px;
         }
 
-        .svg-icon { fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; width: 100%; height: 100%; overflow: visible; }
+        /* SVG Fix - מונע מריחה סופית */
+        .svg-icon { 
+            width: 24px;
+            height: 24px;
+            fill: none; 
+            stroke: currentColor; 
+            stroke-width: 2.2; 
+            stroke-linecap: round; 
+            stroke-linejoin: round;
+            flex-shrink: 0;
+            display: block;
+        }
 
         @media (max-width: 600px) {
             .features-grid { grid-template-columns: 1fr; }
-            .price-final { font-size: 3.8rem; }
-            .cta-btn { width: 100%; min-width: unset; font-size: 1.2rem; }
-            .content-card { padding: 35px 20px; }
-            .single-rec-container { aspect-ratio: 1/1; }
+            .price-final { font-size: 3.5rem; }
+            .cta-btn { width: 100%; min-width: unset; font-size: 1.15rem; }
+            .content-card { padding: 30px 20px; }
+            .single-rec-container { max-width: 100%; }
         }
     </style>
 </head>
@@ -303,14 +294,14 @@
         
         <header class="top-status">
             <div class="success-badge">
-                <div style="width: 18px; height: 18px; flex-shrink: 0;">
+                <div style="width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;">
                     <svg class="svg-icon" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                 </div>
                 מעולה! חוברת המתוקים בדרך למייל שלך
             </div>
             
             <div class="offer-row" style="margin-bottom: 15px;">
-                <div class="offer-highlight-badge" style="background-color: var(--deep-green); color: var(--luxury-gold); display: inline-block; padding: 10px 25px; border-radius: 10px; font-weight: 700; font-size: 1rem; box-shadow: 0 8px 20px rgba(27, 77, 62, 0.1);">הטבת הצטרפות מיוחדת למצטרפות חדשות</div>
+                <div class="offer-highlight-badge" style="background-color: var(--deep-green); color: var(--luxury-gold); display: inline-block; padding: 10px 20px; border-radius: 10px; font-weight: 700; font-size: 0.9rem; box-shadow: 0 8px 20px rgba(27, 77, 62, 0.1);">הטבת הצטרפות מיוחדת למצטרפות חדשות</div>
             </div>
 
             <h1>המתוקים בדרך למייל! ובינתיים... הזדמנות לשדרג את המטבח</h1>
@@ -342,7 +333,7 @@
                     </div>
                     <div class="feature-info">
                         <h3>פתרון לכל השנה</h3>
-                        <p>פשטידות, מנות עיקריות וקינוחי חג ואירוח.</p>
+                        <p>פשטידות, מנות עיקריות וקינוחים.</p>
                     </div>
                 </div>
                 <div class="feature-box">
@@ -351,28 +342,26 @@
                     </div>
                     <div class="feature-info">
                         <h3>ליווי אישי צמוד</h3>
-                        <p>קישור לסרטון וידאו בכל מתכון להצלחה בטוחה.</p>
+                        <p>קישור לסרטון וידאו בכל מתכון.</p>
                     </div>
                 </div>
                 <div class="feature-box">
                     <div class="feature-icon">
-                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l9.52-9.52 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                        <!-- לב מתוקן ללא מריחה -->
+                        <svg class="svg-icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l9.52-9.52 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                     </div>
                     <div class="feature-info">
                         <h3>מבחן הטעם</h3>
-                        <p>מתכונים שכל המשפחה והנכדים אוהבים (בדוק!).</p>
+                        <p>מתכונים שכל המשפחה אוהבת.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Single Authenticity Recommendation Section -->
             <section class="auth-recommendations">
                 <p class="auth-title">מה אומרות נשים שכבר מבשלות מהספר?</p>
                 <div class="single-rec-container">
-                    <!-- צילום מסך של המלצה אמיתית מרבקה הולצברג -->
-                    <img src="hamlza4.png" alt="המלצה אמיתית מהספר" class="rec-image">
+                    <img src="hamlza4.png" alt="המלצה מהספר" class="rec-image">
                 </div>
-                <p class="rec-caption">* צילום מסך מהודעה אמיתית של לקוחה</p>
             </section>
 
             <div class="pricing-island">
@@ -394,37 +383,36 @@
 
                 <div class="trust-row">
                     <div class="trust-badge">
-                        <div style="width: 18px; height: 18px;"><svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
+                        <div style="width: 24px; height: 24px;"><svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
                         סליקה מאובטחת
                     </div>
                     <div class="trust-badge">
-                        <div style="width: 18px; height: 18px;"><svg class="svg-icon" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg></div>
+                        <div style="width: 24px; height: 24px;"><svg class="svg-icon" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg></div>
                         משלוח מהיר
                     </div>
                     <div class="trust-badge">
-                        <div style="width: 18px; height: 18px;"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
+                        <div style="width: 24px; height: 24px;"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
                         אחריות איכות
                     </div>
                 </div>
 
                 <div style="margin-top: 40px;">
-                    <p style="color: var(--deep-green); font-weight: 700; font-size: 0.95rem;">המחיר יעלה בעוד:</p>
+                    <p style="color: var(--deep-green); font-weight: 700; font-size: 0.9rem;">המחיר יעלה בעוד:</p>
                     <div id="timer-val" class="timer-display">15:00</div>
                 </div>
             </div>
         </main>
 
         <section style="text-align: center; margin-bottom: 50px;">
-            <h4>בואי נשמור על קשר בינתיים 💚</h4>
-            <a href="https://chat.whatsapp.com/KxWFEfYZ0PEAbk3Luz9PUI" style="display: inline-flex; align-items: center; gap: 10px; color: #128c7e; text-decoration: none; font-weight: 700; background: #f0fdf4; padding: 15px 35px; border-radius: 14px; margin-top: 25px;" target="_blank">
-                <div style="width: 22px; height: 22px; margin-left: 10px;">
+            <a href="https://chat.whatsapp.com/KxWFEfYZ0PEAbk3Luz9PUI" style="display: inline-flex; align-items: center; gap: 10px; color: #128c7e; text-decoration: none; font-weight: 700; background: #f0fdf4; padding: 12px 30px; border-radius: 14px;" target="_blank">
+                <div style="width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;">
                     <svg class="svg-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-10.4 8.38 8.38 0 0 1 3.8.9L21 4.5z"></path></svg>
                 </div>
                 הצטרפי לקבוצת הוואטסאפ השקטה שלי
             </a>
         </section>
 
-        <footer style="text-align: center; padding: 40px 0; color: #aaa; font-size: 0.85rem;">
+        <footer style="text-align: center; padding: 30px 0; color: #aaa; font-size: 0.8rem;">
             <p>© רבקה הולצברג - בריאות שבאה מהטבע</p>
         </footer>
 

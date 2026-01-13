@@ -292,7 +292,7 @@
             font-weight: 500;
             font-size: 1.1rem;
             border: 1px solid var(--border-light);
-            margin-top: 5px;
+            margin-top: 15px;
         }
 
         /* מסגרת תמונת ההמלצה */
@@ -459,8 +459,10 @@
                     <div class="price-row">
                         <!-- מחיר ישן 129 -->
                         <div id="price-old-display" class="price-old">129 ₪</div>
-                        <!-- מחיר חדש 89 -->
-                        <div id="price-new-display" class="price-new">89 ₪ בלבד</div>
+                        <!-- קבוצת המחיר החדש -->
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <div id="price-new-display" class="price-new">89 ₪</div>
+                        </div>
                     </div>
                     
                     <!-- טיימר -->
@@ -469,8 +471,6 @@
                     </div>
                 </div>
                 
-                <!-- הוסר המשפט "כולל משלוח מהיר עד הבית" -->
-
                 <!-- מקום להמלצה (שם הקובץ מוטמע) -->
                 <div class="single-rec-container">
                     <img src="hamlza4.png" onerror="this.src='https://placehold.co/400x500/1B4D3E/FFF?text=המלצה'" alt="המלצה מהספר">

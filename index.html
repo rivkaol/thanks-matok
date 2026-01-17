@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* --- Brand Variables --- */
+        /* --- Brand Variables & Accessibility (From Health Club Page) --- */
         :root {
             --primary-green: #1B4D3E;
             --accent-gold: #D4AF37;
@@ -22,10 +22,11 @@
             --bg-pearl: #F9FAFB;
             --text-main: #1B4D3E;
             --text-secondary: #000000; 
-            --border-radius: 48px;
+            --earth-pink: #B07D62;
+            --border-radius: 48px; /* עיגול משמעותי */
             --shadow-premium: 0 10px 40px rgba(27, 77, 62, 0.08);
             --font-main: 'Rubik', sans-serif;
-            --base-font-size: 24px;
+            --base-font-size: 24px; /* פונט בסיס מינימלי - עודכן */
         }
 
         /* --- Global Reset & Typography --- */
@@ -45,10 +46,10 @@
             font-family: var(--font-main);
             background-color: var(--bg-pearl);
             color: var(--text-secondary);
-            line-height: 1.8; 
+            line-height: 2.0; 
             font-size: var(--base-font-size);
             overflow-x: hidden;
-            background-image: radial-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 1px);
+            background-image: radial-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 1px); /* טקסטורה עדינה מאוד */
             background-size: 40px 40px;
         }
 
@@ -62,20 +63,20 @@
         }
 
         h1 { 
-            font-size: clamp(40px, 9vw, 80px);
+            font-size: clamp(40px, 9vw, 80px); /* הוגדל */
             margin: 20px auto 1.5rem;
             max-width: 95%;
         }
 
-        h2 { font-size: clamp(34px, 8vw, 55px); }
-        h3 { font-size: clamp(28px, 7vw, 40px); }
+        h2 { font-size: clamp(34px, 8vw, 55px); } /* הוגדל */
+        h3 { font-size: clamp(28px, 7vw, 40px); } /* הוגדל */
 
         p {
             margin-bottom: 2rem;
             font-weight: 400;
             color: var(--text-secondary);
             text-wrap: pretty;
-            font-size: 24px;
+            font-size: 24px; /* בסיס ברזל */
         }
 
         .container {
@@ -99,11 +100,11 @@
             justify-content: center;
             gap: 5px;
             background: #fff;
-            padding: 25px 45px;
+            padding: 25px 45px; /* הוגדל */
             border-radius: 24px;
             color: var(--primary-green);
             font-weight: 500;
-            font-size: 24px;
+            font-size: 24px; /* מינימום 24 */
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             border: 1px solid rgba(27, 77, 62, 0.1);
             margin-bottom: 40px;
@@ -119,14 +120,14 @@
         }
 
         .badge-sub-text {
-            font-size: 1em;
+            font-size: 1em; /* לפחות 24px */
             opacity: 0.9;
             font-weight: 400;
             color: #555;
         }
 
         .header-subtext {
-            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-size: clamp(1.6rem, 4vw, 2.2rem); /* הוגדל */
             font-weight: 500;
             color: var(--text-secondary);
             margin: 0 auto 30px;
@@ -141,7 +142,7 @@
             margin-top: 10px;
         }
 
-        /* --- Content Box --- */
+        /* --- Content Box (The White Card) --- */
         .white-content-box {
             background: #fff;
             padding: 80px 60px;
@@ -150,12 +151,12 @@
             max-width: 1000px;
             margin: 0 auto 60px;
             border: 1px solid rgba(27, 77, 62, 0.05);
-            border-top: 12px solid var(--accent-gold);
+            border-top: 12px solid var(--accent-gold); /* פס זהב למעלה */
             position: relative;
         }
 
         .sub-heading-book {
-            font-size: 2rem; /* הוגדל */
+            font-size: 1.8rem; /* הוגדל */
             color: #555;
             font-weight: 400;
             margin-bottom: 50px;
@@ -183,7 +184,7 @@
 
         .book-3d {
             width: 100%;
-            max-width: 400px;
+            max-width: 400px; /* הוגדל */
             aspect-ratio: 1 / 1.414;
             object-fit: cover;
             border-radius: 8px;
@@ -489,18 +490,17 @@
             <div class="success-badge">
                 <div class="badge-main-text">
                     <i class="fas fa-check-circle" style="font-size: 1.4rem; color: var(--primary-green);"></i>
-                    מעולה! החוברת כבר בדרך למייל שלך
+                    מעולה. החוברת כבר בדרך למייל שלך.
                 </div>
                 <div class="badge-sub-text">
-                    (אם לא רואה תוך כמה דקות שווה להציץ גם בספאם/קידומי מכירות)
+                    (אם לא רואה תוך כמה דקות, שווה להציץ גם בספאם או בקידומי מכירות)
                 </div>
             </div>
 
             <div class="header-subtext">
-                אם את מחפשת אוכל בריא<br>
-                שלא מרגיש כמו פשרה,<br>
-                ושבאמת כיף להכין ולאכול
-                <span class="header-emphasis" style="font-size: 1.8rem; margin-top: 15px;">זה המקום.</span>
+                אם המתכון שראית מצא חן בעינייך,<br>
+                והרגשת שזה משהו שהיית שמחה להכין גם בבית,<br>
+                <span class="header-emphasis" style="font-size: 1.8rem; margin-top: 15px;">הספר הזה פשוט נותן לך עוד מתכונים באותו אופן.</span>
             </div>
             
             <div style="margin-top: 30px; color: var(--accent-gold); font-size: 3rem; animation: bounce 2s infinite;">
@@ -517,7 +517,7 @@
                 <!-- כותרת ראשית -->
                 <h1>המטבח הבריא שלי</h1>
                 <!-- כותרת משנה -->
-                <h3 class="sub-heading-book">אוכל פשוט, טעים, ללא גלוטן וללא סוכר עם 100% הנאה.</h3>
+                <h3 class="sub-heading-book">ספר מתכונים מודפס, כזה שפתוח על השיש בזמן הבישול.</h3>
                 
                 <!-- תצוגת הספר -->
                 <div class="book-container">
@@ -535,13 +535,14 @@
                 </div>
 
                 <!-- טקסט סיפור - מוגדל וללא מקפים -->
-                <p class="story-text">המתכונים כאן נולדו כי גיליתי שלא טוב לי לאכול קמחים רגילים, אבל לא הייתי מוכנה לוותר על הטעם או להפוך את המטבח למסובך.</p>
+                <p class="story-text">לא קובץ.<br>לא לינק.<br>לא טלפון שנכבה באמצע.<br>פותחים עמוד, רואים את כל המתכון מול העיניים, ומכינים.</p>
 
                 <!-- הדגשת היתרון הפיזי -->
                 <div class="benefit-highlight-box">
-                    בסוף, אלה מתכונים פשוטים,<br>
-                    עם מצרכים נגישים,<br>
-                    ושאוכלים אותם אומרים: “זה טעים”.
+                    כל המתכונים בספר בנויים בצורה ברורה:<br>
+                    מצרכים נגישים,<br>
+                    שלבים מסודרים,<br>
+                    ואוכל שיוצא טעים בלי להרגיש שזה אוכל בריא.
                 </div>
             </div>
 
@@ -551,27 +552,27 @@
                 <ul class="features-list">
                     <li>מעל 80 מתכונים בריאים וברורים</li>
                     <li>לחמים, פשטידות, מנות עיקריות וקינוחים</li>
-                    <li>מתכונים קלים להכנה, בלי הסתבכויות</li>
-                    <li>סרטון קצר לכל מתכון כדי שייצא טוב מהפעם הראשונה</li>
+                    <li>מתכונים קלים שמתאימים ליום יום</li>
+                    <li>סרטון קצר לכל מתכון, כדי לראות איך זה נראה בפועל ולהרגיש בטוחה</li>
                 </ul>
             </div>
 
             <!-- Pricing Area -->
             <div class="pricing-card featured">
                 <div class="pricing-header">
-                    <p>הספר נמכר באתר ב־<strong>99&nbsp;₪</strong>.</p>
-                    <p>כאן, דרך החוברת, הוא זמין עכשיו ב־<strong>89&nbsp;₪</strong></p>
+                    <p>הספר נמכר באתר במחיר של <strong>99 ש״ח</strong>.</p>
+                    <p>כאן, דרך החוברת, אפשר להזמין אותו עכשיו ב <strong>89 ש״ח</strong></p>
                 </div>
 
                 <div class="price-container">
                     <!-- שורת מחירים זו לצד זו -->
                     <div class="price-row-container">
-                        <div class="price-old">99&nbsp;₪</div>
+                        <div class="price-old">99&nbsp;ש״ח</div>
                         <div class="price-tag-large">
                             <span class="currency-symbol">₪</span>89
                         </div>
                     </div>
-                    <div class="shipping-note">(+ שליח עד הבית ב־35&nbsp;₪)</div>
+                    <div class="shipping-note">בתוספת שליח עד הבית ב 35 ש״ח.</div>
                 </div>
                 
                 <!-- המלצה - תמונה בלבד ללא טקסט -->
@@ -580,14 +581,14 @@
                 </div>
 
                 <div class="cta-pre-text">
-                    אם זה נשמע לך כמו פתרון שמתאים לחיים עצמם<br>
-                    ולא רק לרעיון של “בריאות”<br>
-                    אפשר להמשיך מכאן 👇
+                    אם את רוצה שיהיה לך בבית<br>
+                    מקום אחד מסודר עם מתכונים שאפשר לסמוך עליהם,<br>
+                    אפשר להמשיך מכאן.
                 </div>
 
                 <!-- קישור תשלום -->
                 <a href="https://private.invoice4u.co.il/newsite/he/clearing/public/i4u-clearing?ProductGuid=78547b55-6474-4095-a177-9cb605ce3fc1" id="main-cta" class="btn-gold">
-                    כן רבקה, אני רוצה את הספר והמתכונים אצלי במטבח >>
+                    כן רבקה, אני רוצה את הספר והמתכונים אצלי במטבח
                 </a>
 
                 <div class="trust-row">
@@ -613,7 +614,7 @@
         <p style="margin-bottom: 30px; font-weight: 500; font-size: 26px;">רוצה גם השראה שקטה לאורך הדרך?</p>
         <a href="https://chat.whatsapp.com/KxWFEfYZ0PEAbk3Luz9PUI" style="display: inline-flex; align-items: center; gap: 12px; color: #128c7e; text-decoration: none; font-weight: 700; background: #fff; padding: 20px 40px; border-radius: 50px; font-size: 1.5rem; border: 2px solid #dcfce7; box-shadow: 0 5px 15px rgba(0,0,0,0.05);" target="_blank">
             <i class="fab fa-whatsapp" style="font-size: 36px;"></i>
-            הצטרפי לקבוצת הוואטסאפ השקטה שלי
+            הצטרפי לקבוצת הוואטסאפ השקטה שלי.
         </a>
     </section>
 

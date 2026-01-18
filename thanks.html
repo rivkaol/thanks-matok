@@ -377,7 +377,7 @@
 
         <section class="intro-text">
             <h2>להכין מתוקים בביטחון מלא.</h2>
-            <p>החוברת שקיבלת היא התחלה נהדרת, אבל כדי לנצח באמת - את חייבת להבין מה באמת נכנס לך ולמשפחה שלך לגוף.</p>
+            <p>החוברת שקיבלת היא התחלה נהארת, אבל כדי לנצח באמת - את חייבת להבין מה באמת נכנס לך ולמשפחה שלך לגוף.</p>
         </section>
 
         <div class="features">
@@ -484,12 +484,13 @@
         const btnText = document.getElementById('btnText');
 
         const MAKE_WEBHOOK_URL = "https://hook.eu2.make.com/7lfu8tncduu3uwseheemm1i45z3mbkpi";
+        const PAYMENT_URL = "https://private.invoice4u.co.il/newsite/he/clearing/public/i4u-clearing?ProductGuid=c4b694bb-64c9-4f5e-bb4d-f04499898afa";
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             let isValid = true;
 
-            // Reset borders
+            // Reset UI
             fullName.style.borderColor = '#e0e0e0';
             email.style.borderColor = '#e0e0e0';
             phone.style.borderColor = '#e0e0e0';
@@ -533,7 +534,7 @@
                 };
 
                 try {
-                    // Send data to Make.com Webhook
+                    // Send JSON data to Make.com Webhook
                     await fetch(MAKE_WEBHOOK_URL, {
                         method: 'POST',
                         headers: {
@@ -543,12 +544,11 @@
                     });
 
                     // Redirect to payment after successful webhook submission
-                    window.location.href = "YOUR_PAYMENT_LINK_HERE";
+                    window.location.href = PAYMENT_URL;
                 } catch (error) {
                     console.error("Submission error:", error);
-                    // Even if webhook fails, we usually want the user to proceed to payment, 
-                    // or you can show a message box.
-                    window.location.href = "YOUR_PAYMENT_LINK_HERE";
+                    // Redirect anyway to avoid losing the sale
+                    window.location.href = PAYMENT_URL;
                 }
             }
         });

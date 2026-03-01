@@ -2,7 +2,7 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>תודה רבה! | רבקה הולצברג</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,6 +22,16 @@
             --page-bg: #ffffff;
             --book-height: 340px;
             --page-width: 240px;
+        }
+
+        /* נעילת רוחב למניעת תזוזה לצדדים */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+            position: relative;
+            margin: 0;
+            padding: 0;
+            width: 100%;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -48,6 +58,7 @@
             max-width: 600px;
             text-align: center;
             animation: fadeIn 0.8s ease-out;
+            overflow-x: hidden; /* הגנה נוספת ברמת הקונטיינר */
         }
 
         .success-banner {
@@ -72,6 +83,7 @@
             box-shadow: 0 15px 35px rgba(27, 77, 62, 0.05);
             margin-bottom: 30px;
             border: 1px solid rgba(212, 175, 55, 0.15);
+            width: 100%;
         }
 
         h2 {
@@ -102,6 +114,7 @@
             box-shadow: 0 5px 15px rgba(37, 211, 102, 0.2);
             margin-bottom: 20px;
             width: 100%;
+            max-width: 100%;
         }
         
         .btn-text {
@@ -124,6 +137,7 @@
         .benefits-list {
             text-align: right;
             margin: 25px 0;
+            width: 100%;
         }
         .benefit-item {
             display: flex;
@@ -158,6 +172,7 @@
             width: 100%;
             perspective: 2500px;
             margin: 30px 0;
+            overflow: hidden; /* מניעת יציאת דפים מגבולות הרכיב */
         }
 
         .book-viewport {
@@ -269,6 +284,7 @@
 
         .price-tag {
             margin: 20px 0 15px 0;
+            width: 100%;
         }
         .new-price {
             color: var(--primary-green);
@@ -297,6 +313,7 @@
             transition: all 0.3s ease;
             box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
             width: 100%;
+            max-width: 100%;
             border: 1px solid rgba(255, 255, 255, 0.3);
             line-height: 1.2;
         }
@@ -347,11 +364,12 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         @media (max-width: 550px) {
-            :root { --page-width: 160px; --book-height: 230px; }
+            :root { --page-width: 155px; --book-height: 220px; }
             .book-viewport { height: 260px; }
             h2 { font-size: 1.4rem; }
             .cta-btn { font-size: 1.25rem; }
             .new-price { font-size: 2.1rem; }
+            .glass-card { padding: 35px 20px; }
         }
     </style>
 </head>
@@ -531,7 +549,7 @@
         const dots = document.querySelectorAll('.dot');
 
         function updateBookUI() {
-            let pageWidth = window.innerWidth <= 550 ? 160 : 240;
+            let pageWidth = window.innerWidth <= 550 ? 155 : 240;
             dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIdx));
             
             if (currentIdx === 0) {

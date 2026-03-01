@@ -19,6 +19,9 @@
             --bg-cream: #F8F9FA;
             --text-dark: #222;
             --whatsapp-green: #25D366;
+            --page-bg: #ffffff;
+            --book-height: 340px;
+            --page-width: 240px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -30,13 +33,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 40px 20px;
+            padding: 20px 15px;
             background: linear-gradient(rgba(248, 249, 250, 0.97), rgba(248, 249, 250, 0.97)), 
                         url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            line-height: 1.7;
+            line-height: 1.6;
             font-size: 1.15rem;
         }
 
@@ -50,56 +53,61 @@
         .success-banner {
             background: #e7f3ef;
             color: var(--primary-green);
-            padding: 20px;
+            padding: 15px;
             border-radius: 20px;
             border-right: 6px solid var(--primary-green);
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             font-weight: 500;
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .glass-card {
             background: rgba(255, 255, 255, 0.98);
             border-radius: 28px;
-            padding: 45px 35px;
-            box-shadow: 0 20px 40px rgba(27, 77, 62, 0.05);
-            margin-bottom: 35px;
+            padding: 40px 25px;
+            box-shadow: 0 15px 35px rgba(27, 77, 62, 0.05);
+            margin-bottom: 30px;
             border: 1px solid rgba(212, 175, 55, 0.15);
         }
 
         h2 {
             color: var(--primary-green);
-            margin-bottom: 20px;
-            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-size: 1.6rem;
             font-weight: 700;
         }
 
         p {
-            margin-bottom: 25px;
-            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-size: 1.15rem;
         }
 
         .whatsapp-btn {
-            display: inline-flex;
+            display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
             background-color: var(--whatsapp-green);
             color: white;
             text-decoration: none;
-            padding: 18px 35px;
+            padding: 16px 20px;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(37, 211, 102, 0.2);
             margin-bottom: 20px;
             width: 100%;
         }
+        
+        .btn-text {
+            white-space: nowrap; 
+        }
+
         .whatsapp-btn:hover {
             transform: translateY(-2px);
             filter: brightness(1.05);
@@ -109,55 +117,171 @@
             border: 0;
             height: 1px;
             background: linear-gradient(to left, transparent, var(--accent-gold), transparent);
-            margin: 40px 0;
+            margin: 35px 0;
             opacity: 0.3;
         }
 
         .benefits-list {
             text-align: right;
-            margin: 30px 0;
+            margin: 25px 0;
         }
         .benefit-item {
             display: flex;
-            gap: 18px;
-            margin-bottom: 22px;
+            gap: 15px;
+            margin-bottom: 20px;
             align-items: flex-start;
         }
         .benefit-icon {
             color: var(--accent-gold);
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             margin-top: 5px;
+            flex-shrink: 0;
         }
         .benefit-text b {
             display: block;
             color: var(--primary-green);
-            margin-bottom: 5px;
-            font-size: 1.3rem;
+            margin-bottom: 4px;
+            font-size: 1.25rem;
         }
         .benefit-text span {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: #444;
             display: block;
+            line-height: 1.4;
         }
 
+        /* --- רכיב הספר התלת-ממדי --- */
+        .book-preview-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            perspective: 2500px;
+            margin: 30px 0;
+        }
+
+        .book-viewport {
+            width: 100%;
+            height: 380px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .book-wrapper {
+            position: relative;
+            width: 0; 
+            height: var(--book-height);
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        .book-spine {
+            position: absolute;
+            width: 20px;
+            height: 101%;
+            left: -10px;
+            background: #0f2b23;
+            transform: translateZ(-2px);
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+            border-radius: 2px;
+            z-index: 10;
+        }
+
+        .page {
+            width: var(--page-width);
+            height: var(--book-height);
+            position: absolute;
+            top: 0;
+            right: 0; 
+            transform-origin: right center; 
+            transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .page-content {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            background: var(--page-bg);
+            border-radius: 10px 0 0 10px;
+            overflow: hidden;
+            box-shadow: -2px 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .page-back {
+            transform: rotateY(-180deg);
+            background: white;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 2px 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .page.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .full-page-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            background-color: #f9f9f9;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 380px;
+            margin-top: 15px;
+            gap: 12px;
+        }
+
+        .nav-btn {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid var(--accent-gold);
+            background: white;
+            color: var(--primary-green);
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .nav-btn:hover:not(:disabled) { background: #fffdf5; }
+        .nav-btn:active:not(:disabled) { transform: scale(0.95); }
+        .nav-btn:disabled { opacity: 0.3; cursor: default; border-color: #eee; color: #ccc; }
+
+        .book-nav-dots { display: flex; gap: 8px; margin-top: 12px; }
+        .dot { width: 8px; height: 8px; border-radius: 50%; background: #ddd; transition: 0.3s; cursor: pointer; }
+        .dot.active { background: var(--accent-gold); transform: scale(1.3); }
+
         .price-tag {
-            margin: 25px 0 15px 0;
+            margin: 20px 0 15px 0;
         }
         .new-price {
             color: var(--primary-green);
-            font-size: 2.8rem;
+            font-size: 2.6rem;
             font-weight: 800;
             display: block;
         }
         .offer-label {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: var(--accent-gold);
             font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
         }
 
-        /* כפתור זהב מבריק ומקצועי עם גרדיאנט */
         .cta-btn {
             display: flex;
             flex-direction: column;
@@ -166,58 +290,53 @@
             background: linear-gradient(135deg, var(--accent-gold-light) 0%, var(--accent-gold) 100%);
             color: white;
             text-decoration: none;
-            padding: 22px 30px;
+            padding: 18px 20px;
             border-radius: 12px;
             font-weight: 700;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             transition: all 0.3s ease;
             box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
             width: 100%;
             border: 1px solid rgba(255, 255, 255, 0.3);
-            position: relative;
-            overflow: hidden;
+            line-height: 1.2;
         }
-        
+
         .cta-btn:hover {
-            background: linear-gradient(135deg, #F5D775 0%, var(--accent-gold-hover) 100%);
             transform: translateY(-2px);
             box-shadow: 0 12px 30px rgba(212, 175, 55, 0.45);
         }
         
-        .cta-btn:active {
-            transform: scale(0.98);
-        }
-
         .cta-btn small {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             opacity: 0.95;
-            margin-top: 4px;
+            margin-top: 6px;
             font-weight: 400;
+            display: block;
         }
 
         .timer-box {
-            margin-top: 30px;
+            margin-top: 25px;
             color: #666;
-            font-size: 1rem;
+            font-size: 0.95rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
             background: #fdfdfd;
             border: 1px solid #eee;
-            padding: 8px 20px;
+            padding: 8px 15px;
             border-radius: 50px;
             display: inline-flex;
         }
         #timer {
             font-weight: 700;
             color: var(--primary-green);
-            min-width: 50px;
+            min-width: 45px;
         }
 
         .security {
             margin-top: 20px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: #aaa;
             display: flex;
             align-items: center;
@@ -227,11 +346,12 @@
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        @media (max-width: 480px) {
-            h2 { font-size: 1.5rem; }
-            .glass-card { padding: 35px 20px; }
+        @media (max-width: 550px) {
+            :root { --page-width: 160px; --book-height: 230px; }
+            .book-viewport { height: 260px; }
+            h2 { font-size: 1.4rem; }
             .cta-btn { font-size: 1.25rem; }
-            .new-price { font-size: 2.2rem; }
+            .new-price { font-size: 2.1rem; }
         }
     </style>
 </head>
@@ -252,7 +372,7 @@
             
             <a href="https://wa.me/504207702?text=היי+רבקה+אשמח+לצפות+בסטטוס+שלך+השם+שלי+הוא" class="whatsapp-btn">
                 <i class="fa-brands fa-whatsapp"></i>
-                עקבי אחרי בסטטוס שלי >>
+                <span class="btn-text">עקבי אחרי בסטטוס שלי >></span>
             </a>
 
             <hr>
@@ -286,13 +406,61 @@
                 </div>
             </div>
 
+            <!-- רכיב הספר התלת-ממדי -->
+            <div class="book-preview-section">
+                <div class="book-viewport" id="clickableArea">
+                    <div class="book-wrapper" id="bookWrapper">
+                        <div class="book-spine"></div>
+                        
+                        <div class="page" id="p4" style="z-index: 1;">
+                            <div class="page-content">
+                                <img src="4.jpg" class="full-page-img" alt="דף 4">
+                            </div>
+                            <div class="page-content page-back"></div>
+                        </div>
+
+                        <div class="page" id="p3" style="z-index: 2;">
+                            <div class="page-content">
+                                <img src="3.jpg" class="full-page-img" alt="דף 3">
+                            </div>
+                            <div class="page-content page-back"></div>
+                        </div>
+
+                        <div class="page" id="p2" style="z-index: 3;">
+                            <div class="page-content">
+                                <img src="2.jpg" class="full-page-img" alt="דף 2">
+                            </div>
+                            <div class="page-content page-back"></div>
+                        </div>
+
+                        <div class="page" id="p1" style="z-index: 4;">
+                            <div class="page-content">
+                                <img src="1.jpg" class="full-page-img" alt="כריכה">
+                            </div>
+                            <div class="page-content page-back"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="goBack()" id="prevBtn" disabled>
+                        <span class="btn-text">דף קודם</span> <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <button class="nav-btn" onclick="goForward()" id="nextBtn">
+                        <i class="fa-solid fa-arrow-left"></i> <span class="btn-text">דף הבא</span>
+                    </button>
+                </div>
+
+                <div class="book-nav-dots" id="dotContainer"></div>
+            </div>
+
             <div class="price-tag">
                 <div id="offerLabel" class="offer-label">הטבת הצטרפות מיוחדת:</div>
                 <span id="priceDisplay" class="new-price">89 ₪</span>
             </div>
 
             <a id="mainCta" href="https://private.invoice4u.co.il/newsite/he/clearing/public/i4u-clearing?ProductGuid=78547b55-6474-4095-a177-9cb605ce3fc1" class="cta-btn">
-                <span>אשמח לקבל את הספר המודפס</span>
+                <span class="btn-text">אשמח לקבל את הספר המודפס</span>
                 <small id="ctaSubtext">כולל גרסה דיגיטלית במתנה אצלך בבית >></small>
             </a>
 
@@ -323,10 +491,8 @@
             const interval = setInterval(function () {
                 minutes = parseInt(timer / 60, 10);
                 seconds = parseInt(timer % 60, 10);
-
                 minutes = minutes < 10 ? "0" + minutes : minutes;
                 seconds = seconds < 10 ? "0" + seconds : seconds;
-
                 display.textContent = minutes + ":" + seconds;
 
                 if (--timer < 0) {
@@ -341,11 +507,78 @@
             }, 1000);
         }
 
+        const pages = [
+            document.getElementById('p1'),
+            document.getElementById('p2'),
+            document.getElementById('p3'),
+            document.getElementById('p4')
+        ];
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const bookWrapper = document.getElementById('bookWrapper');
+        const clickableArea = document.getElementById('clickableArea');
+        const dotContainer = document.getElementById('dotContainer');
+        
+        let currentIdx = 0;
+        const totalStates = pages.length + 1;
+
+        for (let i = 0; i < totalStates; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'dot' + (i === 0 ? ' active' : '');
+            dot.onclick = () => jumpTo(i);
+            dotContainer.appendChild(dot);
+        }
+        const dots = document.querySelectorAll('.dot');
+
+        function updateBookUI() {
+            let pageWidth = window.innerWidth <= 550 ? 160 : 240;
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIdx));
+            
+            if (currentIdx === 0) {
+                bookWrapper.style.transform = `translateX(${pageWidth / 2}px)`;
+            } else if (currentIdx === pages.length) {
+                bookWrapper.style.transform = `translateX(-${pageWidth / 2}px)`;
+            } else {
+                bookWrapper.style.transform = "translateX(0)";
+            }
+
+            prevBtn.disabled = (currentIdx === 0);
+            nextBtn.disabled = (currentIdx === totalStates - 1);
+        }
+
+        function goForward() {
+            if (currentIdx < totalStates - 1) {
+                pages[currentIdx].classList.add('flipped');
+                currentIdx++;
+                updateBookUI();
+            }
+        }
+
+        function goBack() {
+            if (currentIdx > 0) {
+                currentIdx--;
+                pages[currentIdx].classList.remove('flipped');
+                updateBookUI();
+            }
+        }
+
+        function jumpTo(idx) {
+            while (currentIdx < idx) goForward();
+            while (currentIdx > idx) goBack();
+        }
+
+        clickableArea.addEventListener('click', (e) => {
+            const rect = clickableArea.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            if (x < rect.width / 2) goForward();
+            else goBack();
+        });
+
         window.onload = function () {
-            const fifteenMinutes = 60 * 15;
-            const display = document.querySelector('#timer');
-            startTimer(fifteenMinutes, display);
+            startTimer(60 * 15, document.querySelector('#timer'));
+            updateBookUI();
         };
+        window.onresize = updateBookUI;
     </script>
 </body>
 </html>

@@ -20,8 +20,8 @@
             --text-dark: #222;
             --whatsapp-green: #25D366;
             --page-bg: #ffffff;
-            --book-height: 420px;
-            --page-width: 300px;
+            --book-height: 480px;
+            --page-width: 340px;
         }
 
         /* נעילת רוחב למניעת תזוזה לצדדים */
@@ -55,10 +55,10 @@
 
         .container {
             width: 100%;
-            max-width: 600px;
+            max-width: 750px;
             text-align: center;
             animation: fadeIn 0.8s ease-out;
-            overflow-x: hidden; /* הגנה נוספת ברמת הקונטיינר */
+            overflow-x: hidden;
         }
 
         .success-banner {
@@ -76,14 +76,28 @@
             gap: 10px;
         }
 
+        /* עיצוב כרטיסייה ראשית - הספר */
         .glass-card {
             background: rgba(255, 255, 255, 0.98);
             border-radius: 28px;
             padding: 40px 25px;
             box-shadow: 0 15px 35px rgba(27, 77, 62, 0.05);
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             border: 1px solid rgba(212, 175, 55, 0.15);
             width: 100%;
+        }
+
+        /* עיצוב כרטיסייה משנית - וואצאפ */
+        .secondary-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f0f7f4 100%);
+            border: 1px solid rgba(27, 77, 62, 0.1);
+            padding: 30px 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+        }
+
+        .secondary-card h2 {
+            font-size: 1.4rem;
+            color: #333;
         }
 
         h2 {
@@ -112,7 +126,7 @@
             font-size: 1.15rem;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(37, 211, 102, 0.2);
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             width: 100%;
             max-width: 100%;
         }
@@ -124,14 +138,7 @@
         .whatsapp-btn:hover {
             transform: translateY(-2px);
             filter: brightness(1.05);
-        }
-
-        hr {
-            border: 0;
-            height: 1px;
-            background: linear-gradient(to left, transparent, var(--accent-gold), transparent);
-            margin: 35px 0;
-            opacity: 0.3;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
         }
 
         .benefits-list {
@@ -176,12 +183,12 @@
             width: 100%;
             perspective: 2500px;
             margin: 30px 0;
-            overflow: hidden; /* מניעת יציאת דפים מגבולות הרכיב */
+            overflow: hidden;
         }
 
         .book-viewport {
             width: 100%;
-            height: 460px;
+            height: 520px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -402,10 +409,10 @@
 
         @media (max-width: 550px) {
             :root { 
-                --page-width: 180px; 
-                --book-height: 260px; 
+                --page-width: 190px; 
+                --book-height: 280px; 
             }
-            .book-viewport { height: 300px; }
+            .book-viewport { height: 320px; }
             h2 { font-size: 1.4rem; }
             .cta-btn { font-size: 1.25rem; }
             .new-price { font-size: 2.1rem; }
@@ -414,27 +421,15 @@
     </style>
 </head>
 <body>
-
-    <div class="container">
+    <div class="container">        
         
         <div class="success-banner">
             <i class="fa-solid fa-circle-check"></i>
             <span>חוברת המתוקים כבר מחכה לך במייל!</span>
         </div>
 
+        <!-- חלק א': הצעת הספר המלא (OTO) -->
         <div class="glass-card">
-            <h2>רוצה עוד רעיונות וטיפים לבריאות ביום־יום?</h2>
-            <p>
-                מזמינה אותך לקבל ממני השראה יומיומית, טיפים מהמטבח הבריא ורגעים של שקט – ישירות לנייד שלך.
-            </p>
-            
-            <a href="https://wa.me/504207702?text=היי+רבקה+😊+ראיתי+את+החוברת+ואשמח+לקבל+ממך+רעיונות+וטיפים+ליום־יום" class="whatsapp-btn">
-                <i class="fa-brands fa-whatsapp"></i>
-                <span class="btn-text">עקבי אחרי בסטטוס שלי >></span>
-            </a>
-
-            <hr>
-
             <h2>המתוקים הם רק ההתחלה…</h2>
             <p style="text-align: right;">
                 אבל מה עם השקט של שאר היום? כדי להרגיש שינוי אמיתי ביום־יום – זה בדיוק המקום שבו <b>הספר המלא</b> נכנס לתמונה.
@@ -446,30 +441,31 @@
                     <div class="book-wrapper" id="bookWrapper">
                         <div class="book-spine"></div>
                         
+                        <!-- שימי לב: אלו אותם שמות קבצים כמו בלחמים. אם תרצי תמונות אחרות למתוקים, רק צריך להחליף את ה-src -->
                         <div class="page" id="p4" style="z-index: 1;">
                             <div class="page-content">
-                                <img src="4.jpg" class="full-page-img" alt="דף 4">
+                                <img src="4.jpg" class="full-page-img" alt="דף 4" onerror="this.src='https://placehold.co/300x420/f9f9f9/999?text=Page+4'">
                             </div>
                             <div class="page-content page-back"></div>
                         </div>
 
                         <div class="page" id="p3" style="z-index: 2;">
                             <div class="page-content">
-                                <img src="3.jpg" class="full-page-img" alt="דף 3">
+                                <img src="3.png" class="full-page-img" alt="דף 3" onerror="this.src='https://placehold.co/300x420/f9f9f9/999?text=Page+3'">
                             </div>
                             <div class="page-content page-back"></div>
                         </div>
 
                         <div class="page" id="p2" style="z-index: 3;">
                             <div class="page-content">
-                                <img src="2.jpg" class="full-page-img" alt="דף 2">
+                                <img src="2.jpg" class="full-page-img" alt="דף 2" onerror="this.src='https://placehold.co/300x420/f9f9f9/999?text=Page+2'">
                             </div>
                             <div class="page-content page-back"></div>
                         </div>
 
                         <div class="page" id="p1" style="z-index: 4;">
                             <div class="page-content">
-                                <img src="1.jpg" class="full-page-img" alt="כריכה">
+                                <img src="1.jpg" class="full-page-img" alt="כריכה" onerror="this.src='https://placehold.co/300x420/f9f9f9/999?text=Cover'">
                             </div>
                             <div class="page-content page-back"></div>
                         </div>
@@ -534,6 +530,19 @@
             </div>
         </div>
 
+        <!-- חלק ב': הזמנה רכה לוואצאפ -->
+        <div class="glass-card secondary-card">
+            <h2>רוצה עוד רעיונות וטיפים?</h2>
+            <p>
+                מזמינה אותך לקבל ממני השראה יומיומית, טיפים מהמטבח הבריא ורגעים של שקט – ישירות לסטטוס בנייד שלך.
+            </p>
+            
+            <a href="https://wa.me/504207702?text=היי+רבקה+😊+ראיתי+את+החוברת+ואשמח+לקבל+ממך+רעיונות+וטיפים+ליום־יום" class="whatsapp-btn">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span class="btn-text">עקבי אחרי בסטטוס שלי >></span>
+            </a>
+        </div>
+
         <p style="font-size: 0.95rem; opacity: 0.7; padding-bottom: 30px;">
             * החוברת נשלחה. אם לא מצאת אותה, בדקי בתיקיית הקידומים או הספאם.
         </p>
@@ -552,6 +561,7 @@
                 
                 minutes = minutes < 10 ? "0" + minutes : minutes;
                 seconds = seconds < 10 ? "0" + seconds : seconds;
+
                 display.textContent = minutes + ":" + seconds;
 
                 if (--timer < 0) {
@@ -592,7 +602,7 @@
         const dots = document.querySelectorAll('.dot');
 
         function updateBookUI() {
-            let pageWidth = window.innerWidth <= 550 ? 180 : 300;
+            let pageWidth = window.innerWidth <= 550 ? 190 : 340;
             dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIdx));
             
             if (currentIdx === 0) {

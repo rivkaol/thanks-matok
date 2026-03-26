@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    
     <style>
         :root {
             --primary-green: #1B4D3E;
@@ -20,8 +20,19 @@
             --text-dark: #222;
             --whatsapp-green: #25D366;
             --page-bg: #ffffff;
-            --book-height: 420px;
-            --page-width: 300px;
+            --book-height: 480px;
+            --page-width: 340px;
+        }
+
+        /* הגדרות קריטיות למניעת חריגות רוחב ופס לבן בשמאל */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+
+        html {
+            background-color: #ffffff; /* מוודא שכל רקע הדף לבן נקי */
         }
 
         /* נעילת רוחב למניעת תזוזה לצדדים */
@@ -31,59 +42,95 @@
             position: relative;
             margin: 0;
             padding: 0;
-            width: 100%;
-        }
-
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
         }
 
         body {
             font-family: 'Rubik', sans-serif;
             color: var(--text-dark);
+            
+            /* הגדרת צבע לבן אחיד לכל הדף, מונע פסים אפורים */
+            background-color: #ffffff;
+            background-image: none;
+
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px 15px;
-            background: radial-gradient(circle at center, #ffffff 0%, var(--bg-cream) 100%) no-repeat fixed;
             line-height: 1.6;
             font-size: 1.15rem;
         }
 
         .container {
             width: 100%;
-            max-width: 600px;
+            max-width: 750px;
             text-align: center;
             animation: fadeIn 0.8s ease-out;
-            overflow-x: hidden; /* הגנה נוספת ברמת הקונטיינר */
         }
 
         .success-banner {
-            background: #e7f3ef;
+            background: #ffffff;
             color: var(--primary-green);
-            padding: 15px;
-            border-radius: 20px;
-            border-right: 6px solid var(--primary-green);
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(27, 77, 62, 0.08);
+            border: 1px solid rgba(27, 77, 62, 0.1);
             margin-bottom: 25px;
             font-weight: 500;
             font-size: 1.15rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 15px;
+            text-align: right;
+            transition: transform 0.3s ease;
         }
 
+        .success-banner:hover {
+            transform: translateY(-2px);
+        }
+
+        .success-banner i {
+            color: var(--whatsapp-green);
+            font-size: 1.8rem;
+        }
+
+        .success-banner span {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.3;
+        }
+
+        .success-banner small {
+            font-size: 0.85rem;
+            font-weight: 400;
+            opacity: 0.85;
+            margin-top: 4px;
+        }
+
+        /* עיצוב כרטיסייה ראשית - הספר */
         .glass-card {
-            background: rgba(255, 255, 255, 0.98);
-            border-radius: 28px;
-            padding: 40px 25px;
-            box-shadow: 0 15px 35px rgba(27, 77, 62, 0.05);
-            margin-bottom: 30px;
-            border: 1px solid rgba(212, 175, 55, 0.15);
+            background: #ffffff;
+            border-radius: 30px;
+            padding: 45px 30px;
+            box-shadow: 0 15px 45px rgba(27, 77, 62, 0.08);
+            border: 1px solid rgba(27, 77, 62, 0.06);
+            margin-bottom: 25px;
             width: 100%;
+        }
+
+        /* עיצוב כרטיסייה משנית - וואצאפ */
+        .secondary-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f7fbf9 100%);
+            border: 1px solid rgba(27, 77, 62, 0.08);
+            padding: 35px 30px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+            border-radius: 30px;
+        }
+
+        .secondary-card h2 {
+            font-size: 1.4rem;
+            color: #333;
         }
 
         h2 {
@@ -96,6 +143,15 @@
         p {
             margin-bottom: 20px;
             font-size: 1.15rem;
+        }
+
+        .intro-text {
+            text-align: center;
+            background: #fdfdfd;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #f0f0f0;
+            margin-bottom: 25px;
         }
 
         .whatsapp-btn {
@@ -112,9 +168,9 @@
             font-size: 1.15rem;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(37, 211, 102, 0.2);
-            margin-bottom: 20px;
+            margin: 0 auto 10px auto;
             width: 100%;
-            max-width: 100%;
+            max-width: 320px;
         }
 
         .btn-text {
@@ -122,50 +178,54 @@
         }
 
         .whatsapp-btn:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             filter: brightness(1.05);
-        }
-
-        hr {
-            border: 0;
-            height: 1px;
-            background: linear-gradient(to left, transparent, var(--accent-gold), transparent);
-            margin: 35px 0;
-            opacity: 0.3;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
         }
 
         .benefits-list {
-            text-align: right;
-            margin: 25px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            text-align: center;
+            align-items: center;
+            margin: 30px 0;
             width: 100%;
         }
 
         .benefit-item {
             display: flex;
             gap: 15px;
-            margin-bottom: 20px;
-            align-items: flex-start;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 16px 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            max-width: 400px;
         }
 
         .benefit-icon {
             color: var(--accent-gold);
-            font-size: 1.3rem;
-            margin-top: 5px;
+            font-size: 1.1rem;
             flex-shrink: 0;
+            background: rgba(212, 175, 55, 0.1);
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
         }
 
         .benefit-text b {
             display: block;
             color: var(--primary-green);
-            margin-bottom: 4px;
-            font-size: 1.25rem;
-        }
-
-        .benefit-text span {
-            font-size: 1.05rem;
-            color: #444;
-            display: block;
-            line-height: 1.4;
+            font-size: 1.2rem;
+            font-weight: 500;
         }
 
         /* --- רכיב הספר התלת-ממדי --- */
@@ -176,12 +236,12 @@
             width: 100%;
             perspective: 2500px;
             margin: 30px 0;
-            overflow: hidden; /* מניעת יציאת דפים מגבולות הרכיב */
+            overflow: hidden;
         }
 
         .book-viewport {
             width: 100%;
-            height: 460px;
+            height: 520px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -200,7 +260,7 @@
             position: absolute;
             width: 20px;
             height: 101%;
-            left: -10px;
+            right: -10px; /* תוקן לצד ימין עבור ספר בעברית */
             background: #0f2b23;
             transform: translateZ(-2px);
             box-shadow: 0 0 15px rgba(0,0,0,0.3);
@@ -340,27 +400,46 @@
             color: white;
             text-decoration: none;
             padding: 18px 20px;
-            border-radius: 12px;
+            border-radius: 16px;
             font-weight: 700;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
             width: 100%;
-            max-width: 100%;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            line-height: 1.2;
+            max-width: 420px;
+            margin: 0 auto;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            line-height: 1.3;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .cta-btn::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-25deg);
+            animation: shine 4s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            20% { left: 200%; }
+            100% { left: 200%; }
         }
 
         .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.45);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.5);
         }
 
         .cta-btn small {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             opacity: 0.95;
             margin-top: 6px;
-            font-weight: 400;
+            font-weight: 500;
             display: block;
         }
 
@@ -395,6 +474,14 @@
             gap: 6px;
         }
 
+        .footer-note {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-green);
+            padding-bottom: 30px;
+            margin-top: 10px;
+        }
+
         @keyframes fadeIn { 
             from { opacity: 0; transform: translateY(10px); } 
             to { opacity: 1; transform: translateY(0); } 
@@ -402,14 +489,37 @@
 
         @media (max-width: 550px) {
             :root { 
-                --page-width: 180px; 
-                --book-height: 260px; 
+                --page-width: 160px; 
+                --book-height: 240px; 
             }
-            .book-viewport { height: 300px; }
-            h2 { font-size: 1.4rem; }
-            .cta-btn { font-size: 1.25rem; }
-            .new-price { font-size: 2.1rem; }
-            .glass-card { padding: 35px 20px; }
+            body { padding: 15px 10px; }
+            .book-viewport { height: 260px; }
+            h2 { font-size: 1.35rem; }
+            .intro-text { padding: 15px; font-size: 1.05rem; }
+            
+            .cta-btn { font-size: 1.15rem; padding: 16px 12px; border-radius: 14px; }
+            .cta-btn small { font-size: 0.85rem; }
+            .new-price { font-size: 2.2rem; }
+            
+            .glass-card { padding: 30px 15px; border-radius: 24px; }
+            .secondary-card { padding: 25px 15px; border-radius: 24px; }
+            
+            .success-banner { padding: 12px 15px; font-size: 1.05rem; gap: 10px; border-radius: 20px; }
+            .success-banner i { font-size: 1.4rem; }
+            
+            .navigation-buttons { gap: 8px; }
+            .nav-btn { font-size: 0.95rem; padding: 10px; }
+            
+            .benefits-list { margin: 20px 0; }
+            .benefit-item { 
+                flex-direction: row; 
+                text-align: right; 
+                justify-content: flex-start; 
+                gap: 12px; 
+                padding: 12px 15px; 
+            }
+            .benefit-icon { margin-bottom: 0; width: 32px; height: 32px; font-size: 1rem; }
+            .benefit-text b { font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -417,28 +527,31 @@
 
     <div class="container">
         
+        <!-- הודעת הצלחה עליונה -->
         <div class="success-banner">
-            <i class="fa-solid fa-circle-check"></i>
-            <span>חוברת המתוקים כבר מחכה לך במייל!</span>
+            <i class="fa-solid fa-circle-check fa-lg"></i>
+            <span>
+                החוברת כבר בדרך אלייך למייל!
+                <small>אם לא מופיע – שווה לבדוק גם בקידומים או בספאם</small>
+            </span>
         </div>
 
+        <!-- חלק א': הצעת הספר המלא (OTO) -->
         <div class="glass-card">
-            <h2>רוצה עוד רעיונות וטיפים לבריאות ביום־יום?</h2>
-            <p>
-                מזמינה אותך לקבל ממני השראה יומיומית, טיפים מהמטבח הבריא ורגעים של שקט – ישירות לנייד שלך.
-            </p>
+            <h2>איזה כיף שהתחלת <i class="fa-solid fa-sparkles" style="color: var(--accent-gold); font-size: 0.8em; margin-right: 5px;"></i></h2>
             
-            <a href="https://wa.me/504207702?text=היי+רבקה+😊+ראיתי+את+החוברת+ואשמח+לקבל+ממך+רעיונות+וטיפים+ליום־יום" class="whatsapp-btn">
-                <i class="fa-brands fa-whatsapp"></i>
-                <span class="btn-text">עקבי אחרי בסטטוס שלי >></span>
-            </a>
-
-            <hr>
-
-            <h2>המתוקים הם רק ההתחלה…</h2>
-            <p style="text-align: right;">
-                אבל מה עם השקט של שאר היום? כדי להרגיש שינוי אמיתי ביום־יום – זה בדיוק המקום שבו <b>הספר המלא</b> נכנס לתמונה.
-            </p>
+            <div class="intro-text">
+                <p>אבל האמת? זה בדיוק השלב שבו הרבה נתקעות…</p>
+                <p>
+                    כי אחרי ההתלהבות הראשונית מגיע הרגע שצריך כבר לחשוב:<br>
+                    <strong>מה אוכלים ביום־יום?</strong> ומה מכינים בלי להסתבך…
+                </p>
+                <p style="margin-bottom: 0;">
+                    והאמת? זה בדיוק ההבדל בין "ניסיתי"<br>
+                    לבין להרגיש שיש לך סדר ושקט במטבח.<br>
+                    <span style="color: var(--primary-green); font-weight: 700; font-size: 1.25rem; display: block; margin-top: 10px;">ופה נכנס הספר המלא.</span>
+                </p>
+            </div>
 
             <!-- רכיב הספר התלת-ממדי -->
             <div class="book-preview-section">
@@ -446,30 +559,31 @@
                     <div class="book-wrapper" id="bookWrapper">
                         <div class="book-spine"></div>
                         
+                        <!-- שימי לב: אלו אותם שמות קבצים כמו בלחמים. אם תרצי תמונות אחרות למתוקים, רק צריך להחליף את ה-src -->
                         <div class="page" id="p4" style="z-index: 1;">
                             <div class="page-content">
-                                <img src="4.jpg" class="full-page-img" alt="דף 4">
+                                <img src="4.jpg" class="full-page-img" alt="דף 4" onerror="this.src='https://placehold.co/300x420/f9f9f9/999?text=Page+4'">
                             </div>
                             <div class="page-content page-back"></div>
                         </div>
 
                         <div class="page" id="p3" style="z-index: 2;">
                             <div class="page-content">
-                                <img src="3.jpg" class="full-page-img" alt="דף 3">
+                                <img src="3.jpg" class="full-page-img" alt="דף 3" onerror="this.src='https://placehold.co/300x420/f9f9f9/999?text=Page+3'">
                             </div>
                             <div class="page-content page-back"></div>
                         </div>
 
                         <div class="page" id="p2" style="z-index: 3;">
                             <div class="page-content">
-                                <img src="2.jpg" class="full-page-img" alt="דף 2">
+                                <img src="2.jpg" class="full-page-img" alt="דף 2" onerror="this.src='https://placehold.co/300x420/f9f9f9/999?text=Page+2'">
                             </div>
                             <div class="page-content page-back"></div>
                         </div>
 
                         <div class="page" id="p1" style="z-index: 4;">
                             <div class="page-content">
-                                <img src="1.jpg" class="full-page-img" alt="כריכה">
+                                <img src="1.jpg" class="full-page-img" alt="כריכה" onerror="this.src='https://placehold.co/300x420/f9f9f9/999?text=Cover'">
                             </div>
                             <div class="page-content page-back"></div>
                         </div>
@@ -488,54 +602,63 @@
                 <div class="book-nav-dots" id="dotContainer"></div>
             </div>
 
+            <!-- יתרונות בסגנון בולטים -->
             <div class="benefits-list">
                 <div class="benefit-item">
-                    <i class="fa-solid fa-utensils benefit-icon"></i>
+                    <div class="benefit-icon"><i class="fa-solid fa-check"></i></div>
                     <div class="benefit-text">
-                        <b>82 מתכונים נבחרים</b>
-                        <span>נבחרת מנצחת שמרכיבה תפריט בריא ושלם לכל המשפחה.</span>
+                        <b>82 מתכונים שעובדים באמת ביום־יום</b>
                     </div>
                 </div>
                 <div class="benefit-item">
-                    <i class="fa-solid fa-book benefit-icon"></i>
+                    <div class="benefit-icon"><i class="fa-solid fa-check"></i></div>
                     <div class="benefit-text">
-                        <b>הספר אצלך על השיש</b>
-                        <span>בלי מסכים שנכבים – פשוט פותחים ומבשלים בנחת.</span>
+                        <b>פותחת ויודעת בדיוק מה להכין</b>
                     </div>
                 </div>
                 <div class="benefit-item">
-                    <i class="fa-solid fa-video benefit-icon"></i>
+                    <div class="benefit-icon"><i class="fa-solid fa-check"></i></div>
                     <div class="benefit-text">
-                        <b>ליווי צמוד בווידאו</b>
-                        <span>לצד כל מתכון מחכה לך סרטון הדרכה קצר שלי.</span>
+                        <b>פשוט, ברור ובלי להסתבך</b>
                     </div>
                 </div>
             </div>
 
             <div class="price-tag">
-                <div id="offerLabel" class="offer-label">מחיר מיוחד רק למי שכבר כאן:</div>
+                <div id="offerLabel" class="offer-label">מחיר מיוחד רק למי שכבר כאן עכשיו:</div>
                 <span id="priceDisplay" class="new-price">89 ₪</span>
             </div>
 
             <a id="mainCta" href="https://private.invoice4u.co.il/newsite/he/clearing/public/i4u-clearing?ProductGuid=78547b55-6474-4095-a177-9cb605ce3fc1" class="cta-btn">
-                <span class="btn-text">כן, אני רוצה להתחיל לבשל בריא ביום־יום</span>
-                <small id="ctaSubtext">כולל גרסה דיגיטלית במתנה אצלך בבית >></small>
+                <span class="btn-text">אני רוצה שקט במטבח ביום־יום</span>
+                <small id="ctaSubtext"><i class="fa-solid fa-mobile-screen" style="margin-left: 5px;"></i> כולל גרסה דיגיטלית נוחה לשימוש</small>
             </a>
 
             <div class="timer-box" id="timerContainer">
                 <i class="fa-regular fa-clock"></i>
-                <span id="timerText">ההטבה שמורה לך ל:</span>
+                <span id="timerText">ההטבה הזו נשמרת לך רק לזמן קצר ⏳</span>
                 <span id="timer">15:00</span>
             </div>
 
-            <div class="security">
-                <i class="fa-solid fa-lock"></i>
-                סליקה מאובטחת ופרטית
-            </div>
         </div>
 
-        <p style="font-size: 0.95rem; opacity: 0.7; padding-bottom: 30px;">
-            * החוברת נשלחה. אם לא מצאת אותה, בדקי בתיקיית הקידומים או הספאם.
+        <!-- חלק ב': הזמנה רכה לוואצאפ -->
+        <div class="glass-card secondary-card">
+            <h2>רגע לפני שאת יוצאת… <i class="fa-solid fa-leaf" style="color: var(--primary-green); font-size: 0.8em; margin-right: 5px;"></i></h2>
+            <p style="text-align: center;">
+                אני משתפת בסטטוס רגעים מהיום־יום שלי,<br>
+                אוכל שאני מכינה, השראה ושגרה בריאה.<br>
+                <b>זה המקום לראות איך זה נראה באמת.</b>
+            </p>
+            
+            <a href="https://wa.me/972504207702?text=היי+רבקה+😊+אשמח+להצטרף+לסטטוס+שלך" class="whatsapp-btn">
+                <i class="fa-brands fa-whatsapp fa-lg"></i>
+                <span class="btn-text">צרפי אותי לסטטוס 👉</span>
+            </a>
+        </div>
+
+        <p class="footer-note">
+            מחכה לך בפנים
         </p>
 
     </div>
@@ -552,6 +675,7 @@
                 
                 minutes = minutes < 10 ? "0" + minutes : minutes;
                 seconds = seconds < 10 ? "0" + seconds : seconds;
+
                 display.textContent = minutes + ":" + seconds;
 
                 if (--timer < 0) {
@@ -592,7 +716,7 @@
         const dots = document.querySelectorAll('.dot');
 
         function updateBookUI() {
-            let pageWidth = window.innerWidth <= 550 ? 180 : 300;
+            let pageWidth = window.innerWidth <= 550 ? 160 : 340;
             dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIdx));
             
             if (currentIdx === 0) {
